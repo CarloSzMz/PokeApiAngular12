@@ -1,30 +1,60 @@
+/* Contenedor del header */
 .header {
-  /* padding: .5rem; */
-  background-color: white;
+  background-color: #f3f3f3;
   border-bottom: solid 1px #f1f1f1;
   display: flex;
   padding: 0.75rem;
   justify-content: space-between;
+  align-items: center; /* Alineación vertical centrada */
   margin: 0;
 }
+
 .menu {
   margin: 0;
   padding: 0;
   display: flex;
   list-style: none;
   align-items: center;
-  align-content: center;
   justify-content: space-between;
 }
 
+/* Estilo de la imagen del logo */
 .logo {
   height: 2rem;
 }
 
+/* Estilo de los elementos de la lista en el menú */
 .menu li {
   cursor: pointer;
   font-weight: 600;
   padding: 0.5rem 1rem;
   text-align: center;
   color: black;
+}
+
+/* Estilos para el input */
+.menu li input {
+  padding: 0.6rem 1rem;
+  font-size: 1rem;
+  border: 2px solid #8d18db; /* Bordes morados para resaltar */
+  border-radius: 25px; /* Bordes redondeados */
+  outline: none;
+  width: 250px; /* Ancho adecuado */
+  transition: all 0.3s ease; /* Transición suave */
+  box-sizing: border-box;
+}
+
+.menu li input::placeholder {
+  color: #aaa; /* Color más suave para el placeholder */
+  font-style: italic;
+}
+
+.menu li input:focus {
+  border-color: #b857f7; /* Cambio de color del borde al enfocar */
+  box-shadow: 0 0 5px rgba(141, 24, 219, 0.5); /* Sombra sutil al enfocar */
+}
+
+.menu-header {
+  display: flex;
+  align-items: center;
 }

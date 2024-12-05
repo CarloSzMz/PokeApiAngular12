@@ -8,7 +8,7 @@ export class RestService {
   constructor(private httpclient: HttpClient) {}
 
   public getAll() {
-    return this.httpclient.get('https://pokeapi.co/api/v2/pokemon'); //get
+    return this.httpclient.get('https://pokeapi.co/api/v2/pokemon?limit=151'); //get
   }
 
   public getPokemon(url: string) {

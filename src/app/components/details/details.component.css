@@ -1,12 +1,179 @@
 .container {
-  padding-top: 150px;
+  padding-top: 50px;
   display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
-  flex-direction: column;
+  text-align: center;
+  font-family: "Arial", sans-serif;
 }
 
-.container img{
-  background-color: purple;
+.container h1 {
+  font-size: 3rem; /* Aumento de tamaño */
+  color: #8d18db;
+  margin-bottom: 20px;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+}
+.index {
+  color: #dbc818;
+}
+
+.container img {
+  background-color: #f3e8fc;
   border-radius: 20px;
+  border: 4px solid #8d18db;
+  width: 250px; /* Imagen más grande */
+  height: 250px; /* Imagen más grande */
+  margin-bottom: 30px; /* Espaciado mayor entre la imagen y el siguiente contenido */
+  transition: transform 0.3s ease;
+}
+
+.container img:hover {
+  transform: scale(1.1);
+}
+
+hr {
+  width: 80%; /* Línea horizontal que ocupa un 80% del contenedor */
+  margin: 30px 0; /* Espaciado vertical mayor */
+  border: 1px solid #dbc818; /* Estilo de la línea */
+}
+
+.container p {
+  font-size: 1.2rem;
+  margin: 10px 0; /* Aumento de margen para mejor separación */
+}
+
+.types {
+  display: flex;
+  justify-content: center;
+  gap: 15px; /* Mayor separación entre los tipos */
+  margin: 20px 0;
+  color: white;
+}
+
+.type {
+  padding: 6px 12px; /* Ajuste en padding para mayor área de clic */
+  font-size: 1.2rem; /* Tamaño de fuente más grande */
+  font-weight: bold;
+  color: #ffffff;
+  background-color: #8d18db;
+  border-radius: 12px;
+  text-transform: capitalize;
+}
+
+.btn {
+  margin: 10px;
+  display: inline-block;
+  padding: 12px 24px; /* Botones más grandes */
+  font-size: 1.1rem; /* Texto más grande */
+  font-weight: bold;
+  line-height: 1.5;
+  color: #ffffff;
+  text-align: center;
+  cursor: pointer;
+  border: 2px solid #8d18db;
+  border-radius: 8px;
+  background-color: #8d18db;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.btn:hover {
+  background-color: #b857f7;
+  transform: scale(1.05);
+}
+
+.btn:disabled {
+  background-color: #e2d7f3;
+  color: #a1a1a1;
+  cursor: not-allowed;
+}
+
+/* Tipos de Pokémon y sus colores correspondientes */
+.type.fire {
+  background-color: #f08030; /* Rojo-anaranjado para Fire */
+}
+
+.type.water {
+  background-color: #6890f0; /* Azul para Water */
+}
+
+.type.grass {
+  background-color: #78c850; /* Verde para Grass */
+}
+
+.type.electric {
+  background-color: #f8d030; /* Amarillo para Electric */
+}
+
+.type.normal {
+  background-color: #a8a878; /* Gris-verde para Normal */
+}
+
+.type.fighting {
+  background-color: #c03028; /* Rojo para Fighting */
+}
+
+.type.poison {
+  background-color: #a040a0; /* Morado para Poison */
+}
+
+.type.ground {
+  background-color: #e0c068; /* Marrón para Ground */
+}
+
+.type.flying {
+  background-color: #a890f0; /* Azul claro para Flying */
+}
+
+.type.psychic {
+  background-color: #f85888; /* Rosa para Psychic */
+}
+
+.type.bug {
+  background-color: #a8b820; /* Verde oliva para Bug */
+}
+
+.type.rock {
+  background-color: #b8a038; /* Marrón oscuro para Rock */
+}
+
+.type.ghost {
+  background-color: #705898; /* Morado oscuro para Ghost */
+}
+
+.type.dragon {
+  background-color: #7038f8; /* Púrpura para Dragon */
+}
+
+.type.dark {
+  background-color: #705848; /* Gris oscuro para Dark */
+}
+
+.type.steel {
+  background-color: #b8b8d0; /* Gris metálico para Steel */
+}
+
+.type.fairy {
+  background-color: #f0b6bc; /* Rosa claro para Fairy */
+}
+
+.type.ice {
+  background-color: #98d8d8; /* Azul hielo para Ice */
+}
+
+.type.ghost {
+  background-color: #705898; /* Morado oscuro para Ghost */
+}
+
+.type.fairy {
+  background-color: #f0b6bc; /* Rosa para Fairy */
+}
+
+@media (max-width: 480px) {
+  .container h1 {
+    font-size: 2rem; /* Aumento de tamaño */
+    color: #8d18db;
+    margin-bottom: 20px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+  }
 }

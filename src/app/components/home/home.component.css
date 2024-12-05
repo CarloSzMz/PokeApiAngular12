@@ -3,6 +3,10 @@
   grid-template-columns: repeat(3, 1fr);
   gap: 1rem;
   padding: 1rem;
+  grid-auto-rows: minmax(
+    200px,
+    auto
+  ); /* Altura automática y mínima para las celdas */
 }
 
 .contenedor {
@@ -10,12 +14,121 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  border-radius: 20px;
-  padding: 5px;
+  background-color: #f3f3f3; /* Fondo claro */
+  border-radius: 15px; /* Bordes redondeados */
+  padding: 1rem;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Sombra sutil */
+  transition: transform 0.2s ease, box-shadow 0.2s ease; /* Efecto de hover */
+}
+
+.contenedor:hover {
+  transform: translateY(-5px); /* Desplazamiento hacia arriba */
+  box-shadow: 0 8px 12px rgba(0, 0, 0, 0.2); /* Sombra más pronunciada */
+}
+
+.contenedor p {
+  font-size: 1.2rem; /* Aumento de tamaño del texto */
+  color: #333; /* Color de texto oscuro */
+  margin-bottom: 1rem; /* Espacio debajo del nombre */
 }
 
 .contenedor button {
-  padding: 0.5rem;
-  border: solid 1px #eaeaea;
-  border-radius: 0.15rem;
+  padding: 0.7rem 1.2rem; /* Botón más grande */
+  border: none;
+  border-radius: 8px;
+  background-color: #8d18db; /* Fondo del botón */
+  color: white;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.contenedor button:hover {
+  background-color: #b857f7; /* Color de fondo al hacer hover */
+  transform: scale(1.05); /* Efecto de escalado */
+}
+
+.contenedor button:focus {
+  outline: none; /* Eliminar el borde predeterminado al enfocar */
+  box-shadow: 0 0 0 3px rgba(141, 24, 219, 0.5); /* Efecto de foco */
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr); /* 3 columnas por defecto */
+  gap: 1rem;
+  padding: 1rem;
+  grid-auto-rows: minmax(
+    200px,
+    auto
+  ); /* Altura automática y mínima para las celdas */
+}
+
+.contenedor {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: #f3f3f3; /* Fondo claro */
+  border-radius: 15px; /* Bordes redondeados */
+  padding: 1rem;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Sombra sutil */
+  transition: transform 0.2s ease, box-shadow 0.2s ease; /* Efecto de hover */
+}
+
+.contenedor:hover {
+  transform: translateY(-5px); /* Desplazamiento hacia arriba */
+  box-shadow: 0 8px 12px rgba(0, 0, 0, 0.2); /* Sombra más pronunciada */
+}
+
+.contenedor p {
+  font-size: 1.2rem; /* Aumento de tamaño del texto */
+  color: #333; /* Color de texto oscuro */
+  margin-bottom: 1rem; /* Espacio debajo del nombre */
+}
+
+.contenedor button {
+  padding: 0.7rem 1.2rem; /* Botón más grande */
+  border: none;
+  border-radius: 8px;
+  background-color: #8d18db; /* Fondo del botón */
+  color: white;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.contenedor button:hover {
+  background-color: #b857f7; /* Color de fondo al hacer hover */
+  transform: scale(1.05); /* Efecto de escalado */
+}
+
+.contenedor button:focus {
+  outline: none; /* Eliminar el borde predeterminado al enfocar */
+  box-shadow: 0 0 0 3px rgba(141, 24, 219, 0.5); /* Efecto de foco */
+}
+
+/* Media Query para pantallas más pequeñas */
+@media (max-width: 768px) {
+  .grid {
+    grid-template-columns: repeat(
+      2,
+      1fr
+    ); /* 2 columnas en pantallas medianas */
+  }
+}
+
+@media (max-width: 480px) {
+  .grid {
+    grid-template-columns: 1fr; /* 1 columna en pantallas muy pequeñas */
+  }
+  .contenedor {
+    padding: 0.8rem; /* Reducir padding en pantallas pequeñas */
+  }
+  .contenedor p {
+    font-size: 1rem; /* Ajustar tamaño de texto en pantallas pequeñas */
+  }
+  .contenedor button {
+    padding: 0.6rem 1rem; /* Botón más pequeño en pantallas pequeñas */
+  }
 }

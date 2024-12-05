@@ -9,6 +9,7 @@ import { RestService } from 'src/app/services/rest.service';
 })
 export class DetailsComponent implements OnInit {
   public pokemon: any;
+  public tipos: any;
   public errorMessage: string = '';
   public idAnterior: any;
   public idPosterior: any;
@@ -34,10 +35,12 @@ export class DetailsComponent implements OnInit {
       .subscribe({
         next: (data) => {
           this.pokemon = data;
+          this.tipos = this.pokemon?.types;
           this.errorMessage = '';
           this.idAnterior = this.pokemon.id - 1;
           this.idPosterior = this.pokemon.id + 1;
           //console.log(this.pokemon);
+          //console.log(this.tipos);
         },
         error: () => {
           this.errorMessage = 'Pokémon no encontrado. Intenta con otro nombre.';
