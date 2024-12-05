@@ -1,0 +1,8 @@
+<div class="grid">
+  <div *ngFor="let bicho of lista">
+    <div>
+      <p>{{ bicho?.name }}</p>
+      <button (click)="detalles(bicho?.url)">Detalles</button>
+    </div>
+  </div>
+</div>
