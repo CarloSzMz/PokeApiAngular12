@@ -1,0 +1,12 @@
+.container {
+  padding-top: 150px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.container img{
+  background-color: purple;
+  border-radius: 20px;
+}

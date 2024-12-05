@@ -24,9 +24,10 @@ export class HomeComponent implements OnInit {
   }
 
   public detalles(url: string) {
-    this.restService.getPokemon(url).subscribe((respuesta) => {
-      this.restService.selectedPokemon = respuesta;
-      this.router.navigate(['/details']);
-    });
+    const id = url
+      .split('/')
+      .filter((segment) => segment)
+      .pop(); // Obtener el ID del URL
+    this.router.navigate(['/details', id]);
   }
 }

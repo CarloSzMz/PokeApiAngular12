@@ -1,1 +1,18 @@
-<p>details works!</p>
+<div class="container" *ngIf="pokemon; else error">
+  <h1>{{ pokemon.name | uppercase }}</h1>
+  <img [src]="pokemon.sprites.front_default" alt="{{ pokemon.name }}" />
+  <p>Height: {{ pokemon.height }}</p>
+  <p>Weight: {{ pokemon.weight }}</p>
+  <div>
+    <button (click)="buscarPokemon(idAnterior)" [disabled]="idAnterior < 1">
+      Anterior
+    </button>
+    <button (click)="buscarPokemon(idPosterior)" [disabled]="idPosterior > 150">
+      Siguiente
+    </button>
+  </div>
+</div>
+
+<ng-template #error>
+  <p>{{ errorMessage }}</p>
+</ng-template>

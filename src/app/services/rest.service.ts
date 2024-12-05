@@ -6,7 +6,6 @@ import { HttpClient } from '@angular/common/http';
 })
 export class RestService {
   constructor(private httpclient: HttpClient) {}
-  public selectedPokemon: any;
 
   public getAll() {
     return this.httpclient.get('https://pokeapi.co/api/v2/pokemon'); //get

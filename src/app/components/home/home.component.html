@@ -1,6 +1,6 @@
 <div class="grid">
   <div *ngFor="let bicho of lista">
-    <div>
+    <div class="contenedor">
       <p>{{ bicho?.name }}</p>
       <button (click)="detalles(bicho?.url)">Detalles</button>
     </div>
