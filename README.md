@@ -25,7 +25,7 @@ Existen los componentes header, home y details.
 Los servicios se encuentran en la carpeta /services.
 Existen los servicios Rest y Autocomplete, utilizados para hacer las llamadas a la API y autocompletar las busquedas.
 
-##Interfaces
+## Interfaces
 
 Las interfaces/modelos se encuentran en la carpeta /models.
 Ahí se encuentran las interfaces de los resultados que se obtienen en los distintos endpoints de la API
