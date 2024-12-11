@@ -7,4 +7,5 @@ export interface IAllPokemon{
 export interface Result {
     name: string;
     url:  string;
+    image?: string;
 }
