@@ -1,0 +1,40 @@
+/* Estilos del contenedor de carga */
+.loading-container {
+  position: fixed; /* Posiciona el contenedor en la parte superior */
+  top: 50%; /* Centra verticalmente */
+  left: 50%; /* Centra horizontalmente */
+  transform: translate(
+    -50%,
+    -50%
+  ); /* Ajusta para que el centro del contenedor sea el centro de la pantalla */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999; /* Asegura que el spinner esté encima de otros contenidos */
+  text-align: center;
+}
+
+/* Estilos del spinner de carga */
+.spinner {
+  border: 6px solid rgba(0, 0, 0, 0.1);
+  border-top: 6px solid #3498db;
+  border-radius: 50%;
+  width: 80px; /* Tamaño más grande */
+  height: 80px; /* Tamaño más grande */
+  animation: spin 1s linear infinite;
+}
+
+/* Animación del spinner */
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* Estilo para el texto debajo del spinner */
+h5 {
+  margin-top: 15px;
+  font-size: 20px; /* Ajusta el tamaño del texto */
+  color: #dbc818;
+}
