@@ -1,13 +1,26 @@
-<div class="grid">
-  <div *ngFor="let pokemon of lista">
-    <div class="contenedor">
+<!-- home.component.html -->
+<div class="container">
+  <!-- Loader mientras se cargan los datos -->
+  <div *ngIf="loading" class="loading-container">
+    <div class="spinner"></div>
+    <h5>Cargando...</h5>
+  </div>
+
+  <!-- Contenedor de tarjetas de Pokémon -->
+  <div *ngIf="!loading" class="grid">
+    <div *ngFor="let pokemon of lista" class="card">
+      <div
+        class="image-container"
+        [style.background-image]="'url(' + pokemon.image + ')'"
+      ></div>
       <p>{{ pokemon?.name }}</p>
       <button (click)="detalles(pokemon.url)">Detalles</button>
     </div>
   </div>
-</div>
-<div class="pagination">
-  <button (click)="paginaAnterior()" [disabled]="!prevUrl">Anterior</button>
-  <button (click)="paginaSiguiente()" [disabled]="!nextUrl">Siguiente</button>
-</div>
 
+  <!-- Paginación -->
+  <div class="pagination" *ngIf="!loading">
+    <button (click)="paginaAnterior()" [disabled]="!prevUrl">Anterior</button>
+    <button (click)="paginaSiguiente()" [disabled]="!nextUrl">Siguiente</button>
+  </div>
+</div>

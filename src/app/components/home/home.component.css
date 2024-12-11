@@ -1,175 +1,160 @@
-.grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 1rem;
-  padding: 1rem;
-  grid-auto-rows: minmax(
-    200px,
-    auto
-  ); /* Altura automática y mínima para las celdas */
+/* Contenedor principal */
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 2rem;
 }
 
-.contenedor {
+/* Loader */
+.loading-container {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  background-color: #f3f3f3; /* Fondo claro */
-  border-radius: 15px; /* Bordes redondeados */
-  padding: 1rem;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Sombra sutil */
-  transition: transform 0.2s ease, box-shadow 0.2s ease; /* Efecto de hover */
+  min-height: 200px;
 }
 
-.contenedor:hover {
-  transform: translateY(-5px); /* Desplazamiento hacia arriba */
-  box-shadow: 0 8px 12px rgba(0, 0, 0, 0.2); /* Sombra más pronunciada */
+.spinner {
+  border: 4px solid rgba(0, 0, 0, 0.1);
+  border-top: 4px solid #3498db;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  animation: spin 1s linear infinite;
 }
 
-.contenedor p {
-  font-size: 1.2rem; /* Aumento de tamaño del texto */
-  color: #333; /* Color de texto oscuro */
-  margin-bottom: 1rem; /* Espacio debajo del nombre */
-}
-
-.contenedor button {
-  padding: 0.7rem 1.2rem; /* Botón más grande */
-  border: none;
-  border-radius: 8px;
-  background-color: #8d18db; /* Fondo del botón */
-  color: white;
-  font-size: 1rem;
-  cursor: pointer;
-  transition: background-color 0.3s ease, transform 0.2s ease;
-}
-
-.contenedor button:hover {
-  background-color: #b857f7; /* Color de fondo al hacer hover */
-  transform: scale(1.05); /* Efecto de escalado */
-}
-
-.contenedor button:focus {
-  outline: none; /* Eliminar el borde predeterminado al enfocar */
-  box-shadow: 0 0 0 3px rgba(141, 24, 219, 0.5); /* Efecto de foco */
-}
-
-.grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr); /* 3 columnas por defecto */
-  gap: 1rem;
-  padding: 1rem;
-  grid-auto-rows: minmax(
-    200px,
-    auto
-  ); /* Altura automática y mínima para las celdas */
-}
-
-.contenedor {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  background-color: #f3f3f3; /* Fondo claro */
-  border-radius: 15px; /* Bordes redondeados */
-  padding: 1rem;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Sombra sutil */
-  transition: transform 0.2s ease, box-shadow 0.2s ease; /* Efecto de hover */
-}
-
-.contenedor:hover {
-  transform: translateY(-5px); /* Desplazamiento hacia arriba */
-  box-shadow: 0 8px 12px rgba(0, 0, 0, 0.2); /* Sombra más pronunciada */
-}
-
-.contenedor p {
-  font-size: 1.2rem; /* Aumento de tamaño del texto */
-  color: #333; /* Color de texto oscuro */
-  margin-bottom: 1rem; /* Espacio debajo del nombre */
-}
-
-.contenedor button {
-  padding: 0.7rem 1.2rem; /* Botón más grande */
-  border: none;
-  border-radius: 8px;
-  background-color: #8d18db; /* Fondo del botón */
-  color: white;
-  font-size: 1rem;
-  cursor: pointer;
-  transition: background-color 0.3s ease, transform 0.2s ease;
-}
-
-.contenedor button:hover {
-  background-color: #b857f7; /* Color de fondo al hacer hover */
-  transform: scale(1.05); /* Efecto de escalado */
-}
-
-.contenedor button:focus {
-  outline: none; /* Eliminar el borde predeterminado al enfocar */
-  box-shadow: 0 0 0 3px rgba(141, 24, 219, 0.5); /* Efecto de foco */
-}
-
-/* Media Query para pantallas más pequeñas */
-@media (max-width: 768px) {
-  .grid {
-    grid-template-columns: repeat(
-      2,
-      1fr
-    ); /* 2 columnas en pantallas medianas */
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
   }
 }
 
+/* Estilo de las tarjetas */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+  padding: 1rem;
+  margin-top: 2rem;
+}
+
+.card {
+  background-color: #f3f3f3;
+  border-radius: 15px;
+  padding: 1rem;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  width: 200px;
+  margin: 0 auto;
+  text-align: center;
+  opacity: 0;
+  animation: fadeIn 0.8s forwards; /* Fade-in animation */
+}
+
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 12px rgba(0, 0, 0, 0.2);
+}
+
+.image-container {
+  width: 150px;
+  height: 150px;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  border-radius: 50%;
+  margin: 0 auto 1rem;
+}
+
+.card p {
+  font-size: 1.2rem;
+  color: #333;
+  margin-bottom: 1rem;
+}
+
+.card button {
+  padding: 0.7rem 1.2rem;
+  border: none;
+  border-radius: 8px;
+  background-color: #8d18db;
+  color: white;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.card button:hover {
+  background-color: #b857f7;
+  transform: scale(1.05);
+}
+
+/* Paginación */
 .pagination {
   display: flex;
-  justify-content: center; /* Centrar los botones */
-  align-items: center;
-  gap: 1rem; /* Espacio entre los botones */
-  margin-top: 1.5rem; /* Separación respecto al contenido */
-  margin-bottom: 2rem;
+  justify-content: center;
+  gap: 1rem;
+  margin-top: 2rem;
 }
 
 .pagination button {
-  padding: 0.7rem 1.5rem; /* Tamaño del botón */
+  padding: 0.7rem 1.5rem;
   border: none;
   border-radius: 8px;
-  background-color: #8d18db; /* Color de fondo */
+  background-color: #8d18db;
   color: white;
   font-size: 1rem;
   font-weight: bold;
   cursor: pointer;
-  transition: background-color 0.3s ease, transform 0.2s ease; /* Transiciones */
+  transition: background-color 0.3s ease, transform 0.2s ease;
 }
 
 .pagination button:hover {
-  background-color: #b857f7; /* Color de fondo al hacer hover */
-  transform: scale(1.05); /* Efecto de escalado */
+  background-color: #b857f7;
+  transform: scale(1.05);
 }
 
 .pagination button:disabled {
-  background-color: #ddd; /* Color gris para los botones deshabilitados */
-  cursor: not-allowed; /* Cambiar cursor para botones deshabilitados */
-  transform: none; /* Sin efecto de escalado */
+  background-color: #ddd;
+  cursor: not-allowed;
+  transform: none;
 }
 
-.pagination button:focus {
-  outline: none; /* Eliminar el borde predeterminado al enfocar */
-  box-shadow: 0 0 0 3px rgba(141, 24, 219, 0.5); /* Efecto de foco */
+/* Media Queries para pantallas pequeñas */
+@media (max-width: 768px) {
+  .grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .card {
+    width: 100%;
+  }
 }
-
-
 
 @media (max-width: 480px) {
   .grid {
-    grid-template-columns: 1fr; /* 1 columna en pantallas muy pequeñas */
+    grid-template-columns: 1fr;
   }
-  .contenedor {
-    padding: 0.8rem; /* Reducir padding en pantallas pequeñas */
+
+  .card {
+    width: 100%;
+    padding: 0.8rem;
   }
-  .contenedor p {
-    font-size: 1rem; /* Ajustar tamaño de texto en pantallas pequeñas */
+
+  .card p {
+    font-size: 1rem;
   }
-  .contenedor button {
-    padding: 0.6rem 1rem; /* Botón más pequeño en pantallas pequeñas */
+
+  .card button {
+    padding: 0.6rem 1rem;
   }
 }
 
-
+/* Animación Fade-in */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
