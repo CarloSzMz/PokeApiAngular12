@@ -13,14 +13,14 @@ Run `npm run start` for a dev server. Navigate to `http://localhost:4200/`. The 
 Los componentes se encuentran en la carpeta /components.
 Existen los componentes header, home y details.
 
-  ###Header
+### Header
       Contiene la cabecera del proyecto junto con un buscador con la funcionalidad de autocompletado
-  ###Home
+### Home
       Página principal del proyecto dónde se listan los resultados.
-  ###Details
+### Details
       Página de detalle de Pokemons dónde se muestran sus datos.
 
-##Services
+## Services
 
 Los servicios se encuentran en la carpeta /services.
 Existen los servicios Rest y Autocomplete, utilizados para hacer las llamadas a la API y autocompletar las busquedas.
