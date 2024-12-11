@@ -8,6 +8,28 @@ Proyecto generado con [Angular CLI](https://github.com/angular/angular-cli) vers
 
 Run `npm run start` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
 
+## Components
+
+Los componentes se encuentran en la carpeta /components.
+Existen los componentes header, home y details.
+
+  ###Header
+      Contiene la cabecera del proyecto junto con un buscador con la funcionalidad de autocompletado
+  ###Home
+      Página principal del proyecto dónde se listan los resultados.
+  ###Details
+      Página de detalle de Pokemons dónde se muestran sus datos.
+
+##Services
+
+Los servicios se encuentran en la carpeta /services.
+Existen los servicios Rest y Autocomplete, utilizados para hacer las llamadas a la API y autocompletar las busquedas.
+
+##Interfaces
+
+Las interfaces/modelos se encuentran en la carpeta /models.
+Ahí se encuentran las interfaces de los resultados que se obtienen en los distintos endpoints de la API
+
 ## Build
 
 Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
