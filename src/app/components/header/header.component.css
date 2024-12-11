@@ -54,7 +54,38 @@
   box-shadow: 0 0 5px rgba(141, 24, 219, 0.5); /* Sombra sutil al enfocar */
 }
 
-.menu-header {
-  display: flex;
-  align-items: center;
+/* Contenedor de las sugerencias */
+.suggestions-dropdown {
+  background-color: white;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  position: absolute; /* Para que las sugerencias se ubiquen encima del input */
+  width: 250px; /* Asegurarse de que el dropdown sea igual de ancho que el input */
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  max-height: 200px; /* Limitar la altura máxima */
+  overflow-y: auto; /* Permite hacer scroll si hay muchas sugerencias */
+  z-index: 10; /* Asegura que las sugerencias estén por encima de otros elementos */
+}
+
+/* Estilo de cada sugerencia */
+.suggestions-dropdown li {
+  padding: 0.75rem;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  color: #333;
+}
+
+/* Cambiar el fondo al pasar el mouse por encima */
+.suggestions-dropdown li:hover {
+  background-color: #f0f0f0;
+  color: #8d18db; /* Color morado para el texto */
+}
+
+/* Estilo para cuando no hay sugerencias */
+.suggestions-dropdown.empty {
+  display: none;
 }

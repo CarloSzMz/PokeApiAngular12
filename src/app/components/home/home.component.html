@@ -1,8 +1,13 @@
 <div class="grid">
-  <div *ngFor="let bicho of lista">
+  <div *ngFor="let pokemon of lista">
     <div class="contenedor">
-      <p>{{ bicho?.name }}</p>
-      <button (click)="detalles(bicho?.url)">Detalles</button>
+      <p>{{ pokemon?.name }}</p>
+      <button (click)="detalles(pokemon.url)">Detalles</button>
     </div>
   </div>
 </div>
+<div class="pagination">
+  <button (click)="paginaAnterior()" [disabled]="!prevUrl">Anterior</button>
+  <button (click)="paginaSiguiente()" [disabled]="!nextUrl">Siguiente</button>
+</div>
+

@@ -8,7 +8,12 @@ const routes: Routes = [
     path: '', component: HomeComponent
   },
   {
-    path: 'details/:id', component: DetailsComponent
+    path: 'details', component: DetailsComponent
+  },
+  {
+    path:'**',
+    redirectTo:'',
+    pathMatch:'full'
   }
 ];
 

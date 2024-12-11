@@ -118,6 +118,45 @@
   }
 }
 
+.pagination {
+  display: flex;
+  justify-content: center; /* Centrar los botones */
+  align-items: center;
+  gap: 1rem; /* Espacio entre los botones */
+  margin-top: 1.5rem; /* Separación respecto al contenido */
+  margin-bottom: 2rem;
+}
+
+.pagination button {
+  padding: 0.7rem 1.5rem; /* Tamaño del botón */
+  border: none;
+  border-radius: 8px;
+  background-color: #8d18db; /* Color de fondo */
+  color: white;
+  font-size: 1rem;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease; /* Transiciones */
+}
+
+.pagination button:hover {
+  background-color: #b857f7; /* Color de fondo al hacer hover */
+  transform: scale(1.05); /* Efecto de escalado */
+}
+
+.pagination button:disabled {
+  background-color: #ddd; /* Color gris para los botones deshabilitados */
+  cursor: not-allowed; /* Cambiar cursor para botones deshabilitados */
+  transform: none; /* Sin efecto de escalado */
+}
+
+.pagination button:focus {
+  outline: none; /* Eliminar el borde predeterminado al enfocar */
+  box-shadow: 0 0 0 3px rgba(141, 24, 219, 0.5); /* Efecto de foco */
+}
+
+
+
 @media (max-width: 480px) {
   .grid {
     grid-template-columns: 1fr; /* 1 columna en pantallas muy pequeñas */
@@ -132,3 +171,5 @@
     padding: 0.6rem 1rem; /* Botón más pequeño en pantallas pequeñas */
   }
 }
+
+

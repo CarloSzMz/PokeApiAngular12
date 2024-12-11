@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
+import { IPokemon } from 'src/app/models/pokemon.model';
 import { RestService } from 'src/app/services/rest.service';
 
 @Component({
@@ -8,44 +9,78 @@ import { RestService } from 'src/app/services/rest.service';
   styleUrls: ['./details.component.css'],
 })
 export class DetailsComponent implements OnInit {
-  public pokemon: any;
-  public tipos: any;
+  public pokemon: IPokemon | null = null;
+  public tipos: string[] = [];
   public errorMessage: string = '';
-  public idAnterior: any;
-  public idPosterior: any;
+  public nextUrl: string | null = null;
+  public previousUrl: string | null = null;
 
   constructor(
     private restService: RestService,
-    private route: ActivatedRoute
+    private route: ActivatedRoute,
+    private router: Router
   ) {}
 
   ngOnInit(): void {
-    // Escuchar cambios en los parámetros de la URL
-    this.route.paramMap.subscribe((params) => {
-      const id = params.get('id'); // Obtener el ID o nombre desde la URL
-      if (id) {
-        this.buscarPokemon(id);
+    // Obtener la URL del Pokémon desde los parámetros de consulta
+    this.route.queryParams.subscribe((params) => {
+      const url = params['url'];
+      if (url) {
+        this.buscarPokemon(url);
       }
     });
   }
 
-  public buscarPokemon(id: string): void {
+  public buscarPokemon(url: string): void {
     this.restService
-      .getPokemon(`https://pokeapi.co/api/v2/pokemon/${id}`)
+      .getPokemon(url) // Obtener el Pokémon desde la URL
       .subscribe({
-        next: (data) => {
+        next: (data: IPokemon) => {
           this.pokemon = data;
-          this.tipos = this.pokemon?.types;
+
+          //Almacenar los tipos en un array de strings
+          this.tipos = this.pokemon?.types.map((type) => type.type.name) || [];
+
           this.errorMessage = '';
-          this.idAnterior = this.pokemon.id - 1;
-          this.idPosterior = this.pokemon.id + 1;
-          //console.log(this.pokemon);
-          //console.log(this.tipos);
+
+          this.previousUrl =
+            this.pokemon?.id > 1
+              ? `https://pokeapi.co/api/v2/pokemon/${this.pokemon.id - 1}`
+              : null;
+
+          this.nextUrl = `https://pokeapi.co/api/v2/pokemon/${
+            this.pokemon.id + 1
+          }`;
         },
         error: () => {
           this.errorMessage = 'Pokémon no encontrado. Intenta con otro nombre.';
           this.pokemon = null;
         },
       });
+  }
+
+  // Método para actualizar la URL
+  public actualizarUrl(url: string): void {
+    this.router.navigate([], {
+      relativeTo: this.route,
+      queryParams: { url: url },
+      queryParamsHandling: 'merge', // Mantener otros parámetros en la URL
+    });
+  }
+
+  // Función para ir al Pokémon anterior
+  public irAlAnterior(): void {
+    if (this.previousUrl) {
+      this.actualizarUrl(this.previousUrl);
+      this.buscarPokemon(this.previousUrl); // Buscar el Pokémon anterior
+    }
+  }
+
+  // Función para ir al Pokémon siguiente
+  public irAlSiguiente(): void {
+    if (this.nextUrl) {
+      this.actualizarUrl(this.nextUrl);
+      this.buscarPokemon(this.nextUrl); // Buscar el Pokémon siguiente
+    }
   }
 }

@@ -169,6 +169,39 @@ hr {
   background-color: #f0b6bc; /* Rosa para Fairy */
 }
 
+.error-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Contenedor de error */
+.error-message {
+  background-color: #ffcccc; /* Fondo rojo claro */
+  border: 2px solid #ff0000; /* Borde rojo */
+  color: #ff0000; /* Texto rojo */
+  padding: 20px;
+  margin-top: 20px;
+  border-radius: 20px; /* Bordes redondeados */
+  text-align: center; /* Centrar el texto */
+  font-size: 1.2em;
+  font-weight: bold;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1); /* Sombra ligera */
+  width: 50%;
+}
+
+/* Icono de error (si quieres agregar uno en el futuro) */
+.error-message p {
+  margin: 0;
+}
+
+.error-message::before {
+  content: "⚠️ "; /* Puedes usar un icono, o mantener el símbolo de advertencia */
+  font-size: 1.5em;
+  margin-right: 10px;
+}
+
 @media (max-width: 480px) {
   .container h1 {
     font-size: 2rem; /* Aumento de tamaño */

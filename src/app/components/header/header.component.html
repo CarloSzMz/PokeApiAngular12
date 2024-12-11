@@ -3,7 +3,7 @@
     <a routerLink="/">
       <img
         class="logo"
-        src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/98/International_Pok%C3%A9mon_logo.svg/1920px-International_Pok%C3%A9mon_logo.svg.png"
+        src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/98/International_Pokémon_logo.svg/1920px-International_Pokémon_logo.svg.png"
         alt="Pokémon Logo"
       />
     </a>
@@ -15,8 +15,15 @@
           type="text"
           placeholder="Buscar Pokémon"
           [(ngModel)]="pokemonName"
+          (input)="obtenerSugerencias()"
           (keyup.enter)="buscarPokemon()"
         />
+        <!-- Mostrar sugerencias de autocompletado -->
+        <ul *ngIf="pokemonSuggestions.length > 0" class="suggestions-dropdown">
+          <li *ngFor="let suggestion of pokemonSuggestions" (click)="seleccionarPokemon(suggestion)">
+            {{ suggestion | uppercase }}
+          </li>
+        </ul>
       </li>
     </ul>
   </div>

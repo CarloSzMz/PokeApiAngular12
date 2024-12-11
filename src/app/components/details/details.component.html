@@ -9,24 +9,28 @@
   <hr />
   <p><strong>Altura:</strong> {{ pokemon.height }} m</p>
   <p><strong>Peso:</strong> {{ pokemon.weight }} kg</p>
+
+  <!-- Mostrar tipos -->
   <div class="types">
-    <p class="type" *ngFor="let tipo of tipos" [ngClass]="tipo.type.name">
-      {{ tipo.type.name }}
+    <p class="type" *ngFor="let tipo of tipos" [ngClass]="tipo">
+      {{ tipo }}
     </p>
   </div>
+
+  <!-- Botones para navegar entre los Pokémon -->
   <div>
     <button
       class="btn"
-      (click)="buscarPokemon(idAnterior)"
-      [disabled]="idAnterior < 1"
+      (click)="irAlAnterior()"
+      [disabled]="pokemon.id < 1"
       aria-label="Ir al Pokémon anterior"
     >
       Anterior
     </button>
     <button
       class="btn"
-      (click)="buscarPokemon(idPosterior)"
-      [disabled]="idPosterior > 151"
+      (click)="irAlSiguiente()"
+      [disabled]="pokemon.id > 1025"
       aria-label="Ir al Pokémon siguiente"
     >
       Siguiente
@@ -35,5 +39,9 @@
 </div>
 
 <ng-template #error>
-  <p>{{ errorMessage }}</p>
+  <div class="error-container">
+    <div class="error-message">
+      <p>{{ errorMessage }}</p>
+    </div>
+  </div>
 </ng-template>
