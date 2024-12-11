@@ -13,7 +13,7 @@ export class HomeComponent implements OnInit {
   public totalCount: number = 0; // Total de Pokémon disponibles
   public nextUrl: string | null = null; // URL para la siguiente página
   public prevUrl: string | null = null; // URL para la página anterior
-  public loading: boolean = true;
+  public isloading: boolean = true;
   constructor(private restService: RestService, private router: Router) {}
 
   ngOnInit(): void {
@@ -21,7 +21,7 @@ export class HomeComponent implements OnInit {
   }
 
   public cargarDatos(url: string): void {
-    this.loading = true;
+    this.isloading = true;
     this.restService
       .getAll(url || `${this.restService.baseURL}?limit=9&offset=0`)
       .subscribe((respuesta: IAllPokemon) => {
@@ -42,12 +42,21 @@ export class HomeComponent implements OnInit {
           pokemon.image = response.sprites.front_default; // Asigna la imagen
         })
     );
+    // Cuando todas las solicitudes se completan, desactivar el loading
 
-    Promise.all(requests).then(() => {
-      setTimeout(() => {
-        this.loading = false;
-      }, 500); // Mantener la animación de carga visible brevemente
-    });
+    Promise.all(requests)
+      .then(() => {
+        console.log('Todas las imágenes se han cargado');
+        setTimeout(() => {
+          this.isloading = false; // Cambiar el estado de loading después de 3 segundos
+        }, 1000); // 3000 milisegundos = 3 segundos
+      })
+      .catch((error) => {
+        console.error('Error cargando las imágenes', error);
+        setTimeout(() => {
+          this.isloading = false; // Si hay error, también desactivar el loading después de 3 segundos
+        }, 1000); // 3000 milisegundos = 3 segundos
+      });
   }
 
   public detalles(url: string) {

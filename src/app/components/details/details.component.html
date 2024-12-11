@@ -1,4 +1,4 @@
-<div class="container" *ngIf="pokemon; else error">
+<div class="container" *ngIf="pokemon && !isloading; else loading">
   <h1>
     {{ pokemon.name | uppercase }} <span class="index">#{{ pokemon.id }}</span>
   </h1>
@@ -38,10 +38,6 @@
   </div>
 </div>
 
-<ng-template #error>
-  <div class="error-container">
-    <div class="error-message">
-      <p>{{ errorMessage }}</p>
-    </div>
-  </div>
+<ng-template #loading>
+  <app-loading></app-loading>
 </ng-template>

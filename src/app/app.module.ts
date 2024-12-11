@@ -8,6 +8,7 @@ import { HomeComponent } from './components/home/home.component';
 import { HttpClientModule } from '@angular/common/http';
 import { DetailsComponent } from './components/details/details.component';
 import { FormsModule } from '@angular/forms';
+import { LoadingComponent } from './components/loading/loading.component';
 
 @NgModule({
   declarations: [
@@ -15,6 +16,7 @@ import { FormsModule } from '@angular/forms';
     HeaderComponent,
     HomeComponent,
     DetailsComponent,
+    LoadingComponent,
   ],
   imports: [BrowserModule, AppRoutingModule, HttpClientModule, FormsModule],
   providers: [],

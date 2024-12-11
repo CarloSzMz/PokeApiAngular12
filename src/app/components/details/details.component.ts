@@ -14,6 +14,7 @@ export class DetailsComponent implements OnInit {
   public errorMessage: string = '';
   public nextUrl: string | null = null;
   public previousUrl: string | null = null;
+  public isloading: boolean = false;
 
   constructor(
     private restService: RestService,
@@ -32,6 +33,7 @@ export class DetailsComponent implements OnInit {
   }
 
   public buscarPokemon(url: string): void {
+    this.isloading = true;
     this.restService
       .getPokemon(url) // Obtener el Pokémon desde la URL
       .subscribe({
@@ -51,10 +53,17 @@ export class DetailsComponent implements OnInit {
           this.nextUrl = `https://pokeapi.co/api/v2/pokemon/${
             this.pokemon.id + 1
           }`;
+
+          setTimeout(() => {
+            this.isloading = false;
+          }, 800); // 1000 milisegundos = 1 segundo
         },
         error: () => {
           this.errorMessage = 'Pokémon no encontrado. Intenta con otro nombre.';
           this.pokemon = null;
+          setTimeout(() => {
+            this.isloading = false;
+          }, 800); // 1000 milisegundos = 1 segundo
         },
       });
   }
